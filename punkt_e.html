@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Beispielaufgaben - Prisma</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.0/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.0/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.0/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Orbitron', sans-serif;
+      background: #000;
+      color: white;
+    }
+    h1 {
+      text-align: center;
+    }
+    .box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      margin: 15px auto;
+      border-radius: 10px;
+      max-width: 800px;
+    }
+    .info {
+      font-weight: bold;
+      color: #ff4081;
+    }
+    .details {
+      display: none;
+      margin-top: 10px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+    }
+    button {
+      background: #ff4081;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    button:hover {
+      background: #d8356a;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Beispielaufgaben - Prisma</h1>
+
+  <div class="box">
+    <p class="info">📌 Aufgabe 1: Volumen berechnen</p>
+    <p>Ein Prisma hat eine dreieckige Grundfläche mit Basis \( b = 6 \) cm und Höhe \( h_g = 4 \) cm. Die Höhe des Prismas beträgt \( h = 10 \) cm.</p>
+    <button onclick="toggleDetails(1)">Lösung anzeigen</button>
+    <div class="details" id="details1">
+      <p><b>1. Berechnung der Grundfläche:</b></p>
+      <p> \[ A = \frac{b \cdot h_g}{2} = \frac{6 \cdot 4}{2} = 12 \text{ cm}^2 \] </p>
+      <p><b>2. Berechnung des Volumens:</b></p>
+      <p> \[ V = A \cdot h = 12 \cdot 10 = 120 \text{ cm}^3 \] </p>
+    </div>
+  </div>
+
+  <div class="box">
+    <p class="info">📌 Aufgabe 2: Mantelfläche berechnen</p>
+    <p>Ein Prisma hat eine rechteckige Grundfläche mit \( l = 5 \) cm und \( w = 3 \) cm. Die Höhe des Prismas beträgt \( h = 8 \) cm.</p>
+    <button onclick="toggleDetails(2)">Lösung anzeigen</button>
+    <div class="details" id="details2">
+      <p><b>1. Umfang der Grundfläche:</b></p>
+      <p> \[ U = 2(l + w) = 2(5 + 3) = 16 \text{ cm} \] </p>
+      <p><b>2. Mantelfläche:</b></p>
+      <p> \[ M = U \cdot h = 16 \cdot 8 = 128 \text{ cm}^2 \] </p>
+    </div>
+  </div>
+
+  <div class="box">
+    <p class="info">📌 Aufgabe 3: Oberflächeninhalt berechnen</p>
+    <p>Ein Prisma mit einer quadratischen Grundfläche hat eine Seitenlänge von \( s = 5 \) cm und eine Höhe von \( h = 12 \) cm.</p>
+    <button onclick="toggleDetails(3)">Lösung anzeigen</button>
+    <div class="details" id="details3">
+      <p><b>1. Berechnung der Grundfläche:</b></p>
+      <p> \[ A = s^2 = 5^2 = 25 \text{ cm}^2 \] </p>
+      <p><b>2. Berechnung des Umfangs:</b></p>
+      <p> \[ U = 4 \cdot s = 4 \cdot 5 = 20 \text{ cm} \] </p>
+      <p><b>3. Mantelfläche:</b></p>
+      <p> \[ M = U \cdot h = 20 \cdot 12 = 240 \text{ cm}^2 \] </p>
+      <p><b>4. Oberfläche:</b></p>
+      <p> \[ O = 2A + M = 2(25) + 240 = 290 \text{ cm}^2 \] </p>
+    </div>
+  </div>
+
+  <div class="box">
+    <p class="info">📌 Aufgabe 4: Anwendung – Volumen & Oberfläche</p>
+    <p>Ein Aquarium in Form eines Prismas hat eine sechseckige Grundfläche mit einer Seitenlänge von \( s = 4 \) cm. Die Höhe beträgt \( h = 15 \) cm.</p>
+    <button onclick="toggleDetails(4)">Lösung anzeigen</button>
+    <div class="details" id="details4">
+      <p><b>1. Berechnung der Grundfläche (regelmäßiges Sechseck):</b></p>
+      <p> \[ A = \frac{3\sqrt{3}}{2} s^2 = \frac{3\sqrt{3}}{2} (4^2) = \frac{3\sqrt{3} \cdot 16}{2} \approx 41.57 \text{ cm}^2 \] </p>
+      <p><b>2. Berechnung des Volumens:</b></p>
+      <p> \[ V = A \cdot h = 41.57 \cdot 15 \approx 623.55 \text{ cm}^3 \] </p>
+      <p><b>3. Berechnung des Umfangs:</b></p>
+      <p> \[ U = 6s = 6 \cdot 4 = 24 \text{ cm} \] </p>
+      <p><b>4. Mantelfläche:</b></p>
+      <p> \[ M = U \cdot h = 24 \cdot 15 = 360 \text{ cm}^2 \] </p>
+      <p><b>5. Oberfläche:</b></p>
+      <p> \[ O = 2A + M = 2(41.57) + 360 = 443.14 \text{ cm}^2 \] </p>
+    </div>
+  </div>
+
+  <script>
+    function toggleDetails(id) {
+      let details = document.getElementById("details" + id);
+      if (details.style.display === "none" || details.style.display === "") {
+        details.style.display = "block";
+      } else {
+        details.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>

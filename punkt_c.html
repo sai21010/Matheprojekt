@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Aufgabe: Flächeninhalt der Raute</title>
+  
+  <!-- Einbindung von MathJax für die Darstellung von Formeln -->
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  
+  <style>
+    body {
+      background-color: #f7f9fc;
+      font-family: 'Arial', sans-serif;
+      color: #34495e;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    h2 {
+      color: #1abc9c;
+      font-size: 3em;
+      font-weight: 700;
+      margin-top: 60px;
+      margin-bottom: 30px;
+    }
+    .content {
+      max-width: 1000px;
+      margin: auto;
+      text-align: left;
+      background: #ffffff;
+      padding: 50px 70px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      transform: translateY(-20px);
+    }
+    .highlight {
+      font-weight: 600;
+      color: #1abc9c;
+    }
+    .formula {
+      background-color: #ecf0f1;
+      padding: 30px;
+      margin-top: 40px;
+      border-radius: 12px;
+      font-size: 1.5em;
+      font-weight: bold;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+    .formula p {
+      margin: 15px 0;
+    }
+    .description {
+      font-size: 1.5em;
+      color: #7f8c8d;
+      margin-top: 30px;
+      line-height: 1.8;
+      text-align: justify;
+    }
+    .cta {
+      display: inline-block;
+      background-color: #1abc9c;
+      color: white;
+      text-decoration: none;
+      padding: 15px 30px;
+      margin-top: 40px;
+      border-radius: 8px;
+      font-size: 1.2em;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .cta:hover {
+      background-color: #16a085;
+      transform: translateY(-3px);
+    }
+
+    /* Stil für den Klappbereich */
+    .collapsible {
+      background-color: #1abc9c;
+      color: white;
+      cursor: pointer;
+      padding: 15px;
+      width: 100%;
+      text-align: left;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+
+    .active, .collapsible:hover {
+      background-color: #16a085;
+    }
+
+    .content-collapsible {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: #f1f1f1;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .content-collapsible p {
+      font-size: 1.3em;
+      color: #34495e;
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🔷 Aufgabe: Flächeninhalt der Raute</h2>
+
+  <div class="content">
+    <p class="description">Berechne den **Flächeninhalt** einer Raute, wenn die Längen der Diagonalen \( d_1 = 8 \, \text{cm} \) und \( d_2 = 14 \, \text{cm} \) betragen.</p>
+    
+    <!-- Button für Hilfe -->
+    <button class="collapsible">Hilfe anzeigen</button>
+    <div class="content-collapsible">
+      <p>Der Flächeninhalt \( A \) einer Raute kann mit der folgenden Formel berechnet werden:</p>
+      <p><strong>Flächeninhalt: \( A = \frac{d_1 \cdot d_2}{2} \)</strong></p>
+      <p>Wobei \( d_1 \) und \( d_2 \) die Längen der beiden Diagonalen der Raute sind.</p>
+      <p>Setze die gegebenen Werte in die Formel ein, um den Flächeninhalt zu berechnen.</p>
+    </div>
+
+    <!-- Button für Lösung -->
+    <button class="collapsible">Lösung anzeigen</button>
+    <div class="content-collapsible">
+      <p>Die Formel lautet:</p>
+      <p><strong>Flächeninhalt: \( A = \frac{d_1 \cdot d_2}{2} \)</strong></p>
+      <p>Setze nun die gegebenen Werte \( d_1 = 8 \, \text{cm} \) und \( d_2 = 14 \, \text{cm} \) ein:</p>
+      <p><strong>Flächeninhalt: \( A = \frac{8 \, \text{cm} \cdot 14 \, \text{cm}}{2} = \frac{112 \, \text{cm}^2}{2} = 56 \, \text{cm}^2 \)</strong></p>
+      <p>Der Flächeninhalt der Raute beträgt also **56 cm²**.</p>
+    </div>
+
+    <p class="description">Berechne den Flächeninhalt der Raute, indem du die oben genannten Schritte befolgst.</p>
+
+  </div>
+
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    for (var i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

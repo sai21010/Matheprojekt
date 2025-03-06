@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Übungsaufgaben - Prisma</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.0/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.0/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.0/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Orbitron', sans-serif;
+      background: #000;
+      color: white;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .aufgabe {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      margin: 15px auto;
+      border-radius: 10px;
+      max-width: 800px;
+    }
+    .schwierigkeit {
+      font-weight: bold;
+      color: #ff4081;
+    }
+    .loesung {
+      display: none;
+      margin-top: 10px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+    }
+    button {
+      background: #ff4081;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    button:hover {
+      background: #d8356a;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Übungsaufgaben zum Prisma</h1>
+  <h2>Fünf verschiedene Aufgaben mit steigendem Schwierigkeitsgrad</h2>
+
+  <div class="aufgabe">
+    <p class="schwierigkeit">🟢 Leicht</p>
+    <p><b>Aufgabe 1:</b> Die Grundfläche eines Prismas ist eine Raute mit einer Diagonale von 6 cm und einer anderen Diagonale von 8 cm. Berechne den Flächeninhalt der Grundfläche.</p>
+    <button onclick="toggleLoesung(1)">Lösung anzeigen</button>
+    <div class="loesung" id="loesung1">
+      <p>Flächeninhalt einer Raute:</p>
+      <p> \( A = \frac{d_1 \cdot d_2}{2} = \frac{6 \cdot 8}{2} = 24 \) cm²</p>
+    </div>
+  </div>
+
+  <div class="aufgabe">
+    <p class="schwierigkeit">🟢 Leicht</p>
+    <p><b>Aufgabe 2:</b> Ein Prisma hat eine Grundfläche von 24 cm² und eine Höhe von 10 cm. Berechne das Volumen.</p>
+    <button onclick="toggleLoesung(2)">Lösung anzeigen</button>
+    <div class="loesung" id="loesung2">
+      <p>Volumen eines Prismas:</p>
+      <p> \( V = A \cdot h = 24 \cdot 10 = 240 \) cm³</p>
+    </div>
+  </div>
+
+  <div class="aufgabe">
+    <p class="schwierigkeit">🟡 Mittel</p>
+    <p><b>Aufgabe 3:</b> Ein Prisma hat eine Mantelfläche von 150 cm² und zwei Grundflächen von je 24 cm². Berechne den gesamten Oberflächeninhalt.</p>
+    <button onclick="toggleLoesung(3)">Lösung anzeigen</button>
+    <div class="loesung" id="loesung3">
+      <p>Oberflächeninhalt:</p>
+      <p> \( O = 2 \cdot A + M = 2 \cdot 24 + 150 = 198 \) cm²</p>
+    </div>
+  </div>
+
+  <div class="aufgabe">
+    <p class="schwierigkeit">🔴 Schwer</p>
+    <p><b>Aufgabe 4:</b> Die Raute der Grundfläche hat eine Seitenlänge von 5 cm und einen Innenwinkel von 60°. Berechne den Umfang der Grundfläche.</p>
+    <button onclick="toggleLoesung(4)">Lösung anzeigen</button>
+    <div class="loesung" id="loesung4">
+      <p>Da eine Raute vier gleiche Seiten hat:</p>
+      <p> \( U = 4 \cdot 5 = 20 \) cm</p>
+    </div>
+  </div>
+
+  <div class="aufgabe">
+    <p class="schwierigkeit">🔵 Anwendungsaufgabe</p>
+    <p><b>Aufgabe 5:</b> Ein Wasserbehälter hat die Form eines Prismas mit einer rautenförmigen Grundfläche (Diagonalen 10 cm und 12 cm) und einer Höhe von 15 cm. Wieviel Liter Wasser passen in den Behälter?</p>
+    <button onclick="toggleLoesung(5)">Lösung anzeigen</button>
+    <div class="loesung" id="loesung5">
+      <p>Flächeninhalt der Grundfläche:</p>
+      <p> \( A = \frac{d_1 \cdot d_2}{2} = \frac{10 \cdot 12}{2} = 60 \) cm²</p>
+      <p>Volumen:</p>
+      <p> \( V = A \cdot h = 60 \cdot 15 = 900 \) cm³ = 0.9 Liter</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleLoesung(id) {
+      let loesung = document.getElementById("loesung" + id);
+      if (loesung.style.display === "none" || loesung.style.display === "") {
+        loesung.style.display = "block";
+      } else {
+        loesung.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>

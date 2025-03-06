@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Volumen & Oberfläche des Rautenprismas</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <style>
+    body {
+      background: #eef;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+    h2 {
+      color: #333;
+    }
+    .content {
+      max-width: 800px;
+      margin: auto;
+      text-align: left;
+    }
+    .formula {
+      background: white;
+      padding: 15px;
+      border-left: 5px solid #007BFF;
+      font-size: 18px;
+      margin: 10px 0;
+    }
+    #canvas-container {
+      width: 100%;
+      height: 400px;
+      margin-top: 20px;
+    }
+    .back-button {
+      display: block;
+      background: #007BFF;
+      color: white;
+      padding: 12px;
+      margin: 10px auto;
+      width: 200px;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .back-button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📐 Volumen & Oberfläche des Rautenprismas</h2>
+
+  <div class="content">
+    <h3>Volumen</h3>
+    <p>Das Volumen eines Prismas wird mit folgender Formel berechnet:</p>
+    <div class="formula">
+      \( V = A_g \cdot h \)
+    </div>
+    <p>Dabei ist:</p>
+    <ul>
+      <li>\( A_g \) = Grundflächeninhalt (Fläche der Raute)</li>
+      <li>\( h \) = Höhe des Prismas</li>
+    </ul>
+    <p>Das Volumen beschreibt den Raum, den das Prisma einnimmt. Es wird berechnet, indem man die Grundfläche \( A_g \) mit der Höhe \( h \) des Prismas multipliziert. Die Grundfläche \( A_g \) entspricht der Fläche einer Raute, und die Höhe \( h \) ist der Abstand zwischen den beiden Grundflächen.</p>
+
+    <h3>Oberfläche</h3>
+    <p>Die gesamte Oberfläche des Prismas ergibt sich aus:</p>
+    <div class="formula">
+      \( O = 2 \cdot A_g + A_m \)
+    </div>
+    <p>Mit:</p>
+    <ul>
+      <li>\( A_g \) = Grundflächeninhalt</li>
+      <li>\( A_m \) = Mantelflächeninhalt</li>
+    </ul>
+    <p>Die Oberfläche setzt sich aus der Grundfläche \( A_g \) (die zweimal gezählt wird, da es zwei Grundflächen gibt) und der Mantelfläche \( A_m \) zusammen. Die Mantelfläche beschreibt die seitlichen Flächen des Prismas, die die Kanten des Rautenquerschnitts entlang der Höhe verbinden.</p>
+
+    <h3>Mantelfläche</h3>
+    <p>Die Mantelfläche eines Prismas ergibt sich durch die Fläche der seitlichen Flächen, die die Kanten des Prismas mit der Höhe verbinden. Sie kann mit der folgenden Formel berechnet werden:</p>
+    <div class="formula">
+      \( A_m = U \cdot h \)
+    </div>
+    <p>Dabei ist:</p>
+    <ul>
+      <li>\( U \) = Umfang der Raute</li>
+      <li>\( h \) = Höhe des Prismas</li>
+    </ul>
+    <p>Der Umfang \( U \) der Raute wird berechnet, indem man alle vier Seiten der Raute summiert. Diese Länge wird dann mit der Höhe \( h \) multipliziert, um die gesamte Mantelfläche zu berechnen. Sie beschreibt die seitlichen Flächen des Prismas.</p>
+
+  </div>
+
+  <div id="canvas-container"></div>
+
+  <a class="back-button" href="index.html">🔙 Zurück</a>
+
+  <script>
+    let scene = new THREE.Scene();
+    let camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(0, 5, 10);
+
+    let renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, 400);
+    document.getElementById("canvas-container").appendChild(renderer.domElement);
+
+    let controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+
+    let light = new THREE.DirectionalLight(0xffffff, 1);
+    light.position.set(5, 5, 5);
+    scene.add(light);
+
+    let ambientLight = new THREE.AmbientLight(0x404040);
+    scene.add(ambientLight);
+
+    let shape = new THREE.Shape();
+    shape.moveTo(0, 2);
+    shape.lineTo(2, 0);
+    shape.lineTo(0, -2);
+    shape.lineTo(-2, 0);
+    shape.lineTo(0, 2);
+
+    let extrudeSettings = { steps: 1, depth: 4, bevelEnabled: false };
+    let geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+    let material = new THREE.MeshPhongMaterial({ color: 0x007BFF, shininess: 100 });
+
+    let prism = new THREE.Mesh(geometry, material);
+    scene.add(prism);
+
+    function animate() {
+      requestAnimationFrame(animate);
+      prism.rotation.y += 0.01;
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
+
+</body>
+</html>
